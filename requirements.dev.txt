@@ -1,14 +1,10 @@
-jupyter
-ipdb
-
-# Required for tests
-pytest
-pytest-cov
-
-# Required for documentation
-sphinx
-sphinx_rtd_theme
-
-# Development tools
-black
-flake8
+flake8==3.7.9
+ipdb==0.12.2
+jupyter==1.0.0
+pylint==2.4.4
+pytest==5.2.3
+pytest-cov==2.8.1
+scikit-learn==0.21.3
+sphinx==2.2.1
+sphinx_rtd_theme==0.4.3
+shap==0.32.1

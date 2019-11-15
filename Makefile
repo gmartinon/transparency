@@ -30,9 +30,7 @@ doc: install-dev   ## build documentation from docstring
 
 tests: install-dev   ## run unit tests
 	pytest -s tests/unit_tests/
-
-data_tests: install-dev
-	pytest data_tests/
+	pytest -s tests/integration_tests/
 
 coverage: install-dev   ## run code coverage (% of code tested)
 	py.test $(COVERAGE_OPTIONS) --cov=$(SOURCE_DIR) tests/unit_tests/ | tee coverage/coverage.txt
