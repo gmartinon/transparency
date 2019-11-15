@@ -1,0 +1,39 @@
+---
+image: python:3
+
+# TEST STAGE
+
+# Template to run code in the pyproject folder
+.run:
+  stage: test
+  before_script:
+    - make init
+    - source activate.sh
+    - make install-dev
+    - export TRANSPARENCY_SETTINGS_MODULE=transparency.settings.dev
+
+run tests:
+  extends: .run
+  script:
+    - make tests
+
+check linting:
+  extends: .run
+  script:
+    - make lint
+
+run demo pipeline:
+  extends: .run
+  script:
+    - make pipeline
+
+create doc:
+  extends: .run
+  script:
+    - make doc
+
+make coverage:
+  extends: .run
+  script:
+    - make coverage
+  coverage: '/TOTAL.+ ([0-9]{1,3}%)/' # This parses the coverage log to display coverage into gitlab
